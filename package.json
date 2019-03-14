@@ -1,0 +1,49 @@
+{
+	"name": "hexagony",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "mocha tests",
+		"start": "nodemon --inspect=0.0.0.0:9229 ./dist/index",
+		"bundle": "webpack --watch",
+		"asbuild:untouched": "asc assembly-script/index.ts -b dist/wasm/untouched.wasm -t dist/wasm/untouched.wat --sourceMap --validate --debug",
+		"asbuild:optimized": "asc assembly-script/index.ts -b dist/wasm/untouched.wasm -t dist/wasm/untouched.wat --sourceMap --validate --optimize",
+		"asbuild": "npm run asbuild:untouched && npm run asbuild:optimized",
+		"tsbuild": "tsc",
+		"tsbuild:watch": "tsc -w",
+		"build:all": "npm run clear:dist && npm run asbuild:untouched && npm run tsbuild:watch",
+		"clear:dist": "rm -rf dist/*"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/express": "^4.16.0",
+		"@types/helmet": "0.0.42",
+		"@types/node": "^10.12.12",
+		"@types/react-dom": "^16.0.11",
+		"@types/react-helmet": "^5.0.7",
+		"@types/react-redux": "^6.0.11",
+		"@types/react-router": "^4.4.3",
+		"@types/webassembly-js-api": "0.0.2",
+		"assemblyscript": "github:AssemblyScript/assemblyscript",
+		"chai": "^4.2.0",
+		"mocha": "^5.2.0",
+		"nodemon": "^1.18.9",
+		"ts-loader": "^5.3.1",
+		"typescript": "^3.2.2",
+		"webpack": "^4.29.6",
+		"webpack-cli": "^3.2.3"
+	},
+	"dependencies": {
+		"express": "^4.16.4",
+		"helmet": "^3.15.0",
+		"mongodb": "^3.1.13",
+		"react": "^16.7.0",
+		"react-dom": "^16.7.0",
+		"react-helmet": "^5.2.0",
+		"react-redux": "^6.0.0",
+		"react-router": "^4.3.1"
+	}
+}

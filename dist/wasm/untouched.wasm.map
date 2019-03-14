@@ -1,0 +1,1 @@
+{"version":3,"sources":["assembly-script/index.ts"],"names":[],"mappings":"iGAGY,AAAJ,EAAI,MAGA,AAAJ,EAAI","sourceRoot":"assemblyscript:///","sourceContents":["// The entry file of your WebAssembly module.\n\nexport function add(a: i32, b: i32): i32 {\n\treturn a + b;\n}\nexport function substract(a: i32, b: i32): i32 {\n\treturn a - b;\n}"]}

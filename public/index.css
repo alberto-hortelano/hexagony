@@ -1,0 +1,36 @@
+body {
+  background-color: cadetblue;
+  width: 3030px;
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+.comp-row {
+  margin: 0 0 -9px;
+  padding: 0;
+}
+.comp-row:nth-child(even) {
+  padding-left: 30px;
+}
+.comp-cell {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.6) inset;
+}

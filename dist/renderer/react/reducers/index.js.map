@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../src/renderer/react/reducers/index.ts"],"names":[],"mappings":";;AAAA,iDAA8C;AAG9C,SAAgB,UAAU,CAAC,KAAK,GAAG,2BAAY,EAAE,MAAiB;IACjE,OAAO,CAAC,GAAG,CAAC,YAAY,EAAE,KAAK,EAAE,MAAM,CAAC,CAAC;IACzC,OAAO,KAAK,CAAC;AACd,CAAC;AAHD,gCAGC"}
