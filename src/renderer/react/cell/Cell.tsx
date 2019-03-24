@@ -26,6 +26,6 @@ export default class Cell extends React.Component<CellProps, CellState> {
 	}
 
 	public render() {
-		return <li className={this.renderClass()} />;
+		return <li className={this.renderClass()} ><div className="hexagon"></div></li>;
 	}
 }

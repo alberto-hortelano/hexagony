@@ -1,5 +1,5 @@
-import { Request, Response, NextFunction } from 'express';
-import { reactRenderer } from "./react";
+import { Request, Response } from 'express';
+import { reactRenderer } from "./react/server";
 
 export enum RendererType {
 	default,

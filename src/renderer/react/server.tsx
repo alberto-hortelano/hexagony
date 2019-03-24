@@ -1,11 +1,9 @@
 import * as React from "react";
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import * as ReactDOMServer from "react-dom/server";
-import { Route, StaticRouter } from "react-router";
-import { Provider } from "react-redux";
+import { StaticRouter } from 'react-router-dom';
 import { Helmet } from "react-helmet";
-import store from "./store";
-import { BoardCT } from "./board/Board";
+import { Routes } from './Routes';
 
 const helmet = Helmet.renderStatic();
 
@@ -20,7 +18,6 @@ export function reactRenderer(req: Request, res: Response) {
 			<head>
 				<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" />
 				<link rel="stylesheet" type="text/css" href="/public/index.css" />
-				<script src="/public/react.bundle.js"></script>
 				{helmet.title.toComponent()}
 				{helmet.meta.toComponent()}
 				{helmet.link.toComponent()}
@@ -28,11 +25,10 @@ export function reactRenderer(req: Request, res: Response) {
 			<body {...bodyAttrs}>
 				<div id="content">
 					<StaticRouter location={req.url} context={context} >
-						<Provider store={store}>
-							<Route path='/:initialState' render={props => <BoardCT {...props} height={30} width={50} />} />
-						</Provider>
+						<Routes />
 					</StaticRouter>
 				</div>
+				<script src="/public/react.bundle.js"></script>
 			</body>
 		</html>
 	).pipe(res);

@@ -6,8 +6,9 @@ import Row from "../row/Row";
 export type BoardProps = { width: number; height: number };
 
 export const Board: React.FC<BoardProps> = props => {
+	console.log('--state', props['state']);
 	const { width, height } = props;
-	console.log('props', props);
+	console.log('--props', props);
 
 	const renderRows = () => {
 		let rows = [];
