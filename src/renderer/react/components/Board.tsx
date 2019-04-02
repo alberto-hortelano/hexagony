@@ -1,14 +1,12 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import Row from "../row/Row";
+import Row from "./Row";
 
 export type BoardProps = { width: number; height: number };
 
 export const Board: React.FC<BoardProps> = props => {
-	console.log('--state', props['state']);
 	const { width, height } = props;
-	console.log('--props', props);
 
 	const renderRows = () => {
 		let rows = [];
@@ -17,7 +15,6 @@ export const Board: React.FC<BoardProps> = props => {
 		while (n--) {
 			rows.push(<Row key={n} cellsNumber={width} />);
 		}
-		console.log('renderRows', rows);
 		return rows;
 	};
 

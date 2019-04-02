@@ -1,11 +1,6 @@
 import { Request, Response } from 'express';
 import { reactRenderer } from "./react/server";
-
-export enum RendererType {
-	default,
-	react,
-	vue
-};
+import { RendererType } from '../constants';
 
 const renderers: { (req: Request, res: Response): void }[] = [
 	defaultRenderer,
