@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-	entry: './src/index.ts',
+	entry: './dist/renderer/react/client.js',
 	devtool: 'inline-source-map',
 	module: {
 		rules: [
@@ -19,5 +19,6 @@ module.exports = {
 		filename: 'react.bundle.js',
 		path: path.resolve(__dirname, 'public')
 	},
-	target: 'node'
+	target: 'web',
+	mode: 'development'
 };
