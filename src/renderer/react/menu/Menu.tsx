@@ -1,5 +1,6 @@
 import * as React from "react";
-import { setGlobalAction } from "../../../state/globalAction";
+import { connect } from "react-redux";
+import { CurrentActionCT } from "./CurrentAction";
 
 export type MenuStructure = {
 	[name: string]: {
@@ -8,12 +9,8 @@ export type MenuStructure = {
 	}
 }
 let n = 0;
-const MenuItem = ({ text, children, action }) => {
-	const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-		e.stopPropagation();
-		setGlobalAction({ type: 'aa' });
-		console.log('this is:', this);
-	}
+const MenuItem = ({ text, children, action, handleClick }) => {
+
 	const renderSubmenu = () => {
 		if (!children) {
 			return;
@@ -23,7 +20,7 @@ const MenuItem = ({ text, children, action }) => {
 			if (children.hasOwnProperty(name)) {
 				const element = children[name];
 				console.log(n, name, children[name]);
-				menuItems.push(<MenuItem key={n++} action={element.action} text={name} children={element.children} />);
+				menuItems.push(<MenuItemCT key={n++} action={element.action} text={name} children={element.children} />);
 			}
 		}
 		return (
@@ -32,15 +29,30 @@ const MenuItem = ({ text, children, action }) => {
 			</ul>
 		);
 	};
+
 	const className = `pure-menu-item ${children ? 'pure-menu-has-children ' : ''}pure-menu-allow-hover`
 
 	return (
 		<li className={className}>
-			<button onClick={handleClick} className="pure-menu-link">{text}</button>
+			<button onClick={() => handleClick(action)} className="pure-menu-link">{text}</button>
 			{renderSubmenu()}
 		</li>
 	);
 };
+const mapDispatchToProps = dispatch => {
+	return {
+		handleClick: action => {
+			dispatch({
+				type: 'SELECT_MAP_TERRAIN',
+				payload: action
+			})
+		}
+	}
+}
+export const MenuItemCT = connect(
+	null,
+	mapDispatchToProps
+)(MenuItem);
 
 export const Menu: React.FC<MenuStructure> = props => {
 	const { structure } = props;
@@ -51,7 +63,7 @@ export const Menu: React.FC<MenuStructure> = props => {
 			if (structure.hasOwnProperty(name)) {
 				console.log(name, structure[name]);
 				const { action, children } = structure[name];
-				menuItems.push(<MenuItem key={n++} text={name} action={action} children={children} />);
+				menuItems.push(<MenuItemCT key={n++} text={name} action={action} children={children} />);
 			}
 		}
 		return menuItems;
@@ -61,6 +73,7 @@ export const Menu: React.FC<MenuStructure> = props => {
 			<ul className="pure-menu-list">
 				{renderMenuItems()}
 			</ul>
+			<CurrentActionCT />
 		</div>
 	);
 }

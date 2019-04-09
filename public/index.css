@@ -86,6 +86,10 @@ body {
 	transform: rotateZ(-60deg);
 }
 
+.global-action {
+	display: inline;
+}
+
 /* PURE MENU */
 
 .pure-menu-horizontal {

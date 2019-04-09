@@ -7,10 +7,9 @@ import { getCollection } from '../index';
 
 export function getApp(rendererType: RendererType) {
 	const app = express();
-	console.log('rendererType', rendererType);
 	const renderer = getRenderer(rendererType);
-	const gamesCollection = getCollection(CollectionNames.Games);
-	console.log(gamesCollection);
+	// const gamesCollection = getCollection(CollectionNames.Games);
+	// console.log(gamesCollection);
 
 	app.use(helmet());
 	app.use('/public', express.static(resolve(__dirname, '../../public')));

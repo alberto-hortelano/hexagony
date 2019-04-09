@@ -16,7 +16,7 @@ export function reactRenderer(req: Request, res: Response) {
 	ReactDOMServer.renderToNodeStream(
 		<html {...htmlAttrs}>
 			<head>
-				<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" />
+				<link rel="stylesheet" type="text/css" href="/public/reboot.min.css" />
 				<link rel="stylesheet" type="text/css" href="/public/index.css" />
 				{helmet.title.toComponent()}
 				{helmet.meta.toComponent()}
@@ -28,7 +28,7 @@ export function reactRenderer(req: Request, res: Response) {
 						<Routes />
 					</StaticRouter>
 				</div>
-				<script src="/public/react.bundle.js"></script>
+				<script async src="/public/react.bundle.js"></script>
 			</body>
 		</html>
 	).pipe(res);

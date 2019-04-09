@@ -1,6 +1,6 @@
 import * as React from "react";
-import { BoardCT } from "../components/Board";
-import { Menu, MenuStructure } from "../components/Menu";
+import { BoardCT } from "../board/Board";
+import { Menu, MenuStructure } from "../menu/Menu";
 
 
 export const MapEditor: React.FC = () => {
@@ -8,7 +8,7 @@ export const MapEditor: React.FC = () => {
 		terrain: {
 			children: {
 				dust: {
-					action: 'action'
+					action: 'SELECT_MAP_TERRAIN'
 				},
 				grass: {
 					action: 'action'
