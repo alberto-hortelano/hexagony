@@ -19,6 +19,7 @@ module.exports = {
 		filename: 'react.bundle.js',
 		path: path.resolve(__dirname, 'public')
 	},
+	stats: 'normal',
 	target: 'web',
 	mode: 'development'
 };

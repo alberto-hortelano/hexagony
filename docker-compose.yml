@@ -1,11 +1,11 @@
 version: "3"
 services:
   hexagony:
-    command: "sh -c 'cd /opt/app && npm start'"
     container_name: "hexagony"
     image: node:10
     volumes:
       - ./:/opt/app
+    working_dir: /opt/app
     ports:
       - 8801-8810:8801-8810
       - 9229:9229
@@ -25,3 +25,16 @@ services:
     ports:
       - 27017:27017
     command: mongod --smallfiles --logpath=/dev/null # --quiet
+  mongoclient:
+    image: mongoclient/mongoclient
+    container_name: "mongoclient"
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017
+    ports:
+      - 27027:3000
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
+    volumes:
+      - /home/alberto/code/dkr/mongoclient:/data/db

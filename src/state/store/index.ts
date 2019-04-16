@@ -1,5 +1,5 @@
-import { createStore, combineReducers } from "redux";
-import { selectCell } from "../reducers";
+import { createStore } from "redux";
+import { rootReducer } from "../reducers";
 
 interface Cell {
 	x: number,
@@ -16,6 +16,4 @@ interface GameState {
 	map: MapState
 }
 
-const store = createStore(combineReducers({ selectCell }));
-
-export default store;
+export const store = createStore(rootReducer);

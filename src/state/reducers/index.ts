@@ -1,7 +1,10 @@
-import { initialState } from "./initialState";
-import { AnyAction } from "redux";
+import { combineReducers } from "redux";
+import { selectAction } from "./selectAction";
+import { selectCell } from "./selectCell";
 
-export function selectCell(state = initialState, action: AnyAction) {
-	console.log("selectCell", state, action);
-	return state;
-}
+export const rootReducer = combineReducers({
+	selectAction,
+	selectCell,
+});
+
+export type AppState = ReturnType<typeof rootReducer>

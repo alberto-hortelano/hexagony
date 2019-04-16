@@ -26,9 +26,14 @@ body {
 	background: transparent;
 }
 
+.board {
+	margin-top: 4px;
+}
+
 .comp-row {
-	margin: 0 0 -8px;
+	margin: 0 0 -9px;
 	padding: 0;
+	width: 3030px;
 }
 
 .comp-row:nth-child(even) {
@@ -38,10 +43,11 @@ body {
 .comp-cell {
 	position: relative;
 	display: inline-block;
-	width: 60px;
-	height: 60px;
+	width: 61px;
+	height: 61px;
 	border-radius: 100%;
-	box-shadow: 0px 0px 0px 1px rgba(0, 255, 0, 0.1) inset;
+	margin-right: -1px;
+	user-select: none;
 }
 
 .hexagon, .hexagon:before, .hexagon:after {
@@ -78,4 +84,98 @@ body {
 
 .hexagon:after {
 	transform: rotateZ(-60deg);
+}
+
+.global-action {
+	display: inline;
+}
+
+/* PURE MENU */
+
+.pure-menu-horizontal {
+	width: 100%;
+	white-space: nowrap;
+	height: 40px;
+}
+
+.pure-menu-horizontal .pure-menu-list {
+	display: inline-block;
+}
+
+.pure-menu-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.pure-menu-item, .pure-menu-list {
+	position: relative;
+}
+
+.pure-menu-horizontal .pure-menu-heading, .pure-menu-horizontal .pure-menu-item, .pure-menu-horizontal .pure-menu-separator {
+	display: inline-block;
+	zoom: 1;
+	vertical-align: middle;
+}
+
+.pure-menu-item {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+.pure-menu-disabled, .pure-menu-heading, .pure-menu-link {
+	padding: .5em 1em;
+}
+
+.pure-menu-link {
+	color: #777;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.pure-menu-heading, .pure-menu-link {
+	display: block;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.pure-menu-horizontal .pure-menu-children {
+	left: 0;
+	top: auto;
+	width: inherit;
+}
+
+.pure-menu-children {
+	background-color: #000;
+}
+
+.pure-menu-children {
+	display: none;
+	position: absolute;
+	left: 100%;
+	top: 0;
+	margin: 0;
+	padding: 0;
+	z-index: 3;
+}
+
+.pure-menu-active>.pure-menu-children, .pure-menu-allow-hover:hover>.pure-menu-children, .pure-menu-allow-hover>.pure-menu-link:focus+.pure-menu-children {
+	display: block;
+	position: absolute;
+}
+
+.pure-menu-has-children>.pure-menu-link {
+	cursor: default;
+}
+
+.pure-menu-horizontal .pure-menu-has-children>.pure-menu-link:after {
+	content: "\25BE";
+}
+
+.pure-menu-has-children>.pure-menu-link:after {
+	padding-left: .5em;
+	content: "\25B8";
+	font-size: small;
 }

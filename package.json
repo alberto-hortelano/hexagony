@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "mocha tests",
-		"start": "npm run clear:dist && npm run asbuild:untouched && npm run tsbuild && nodemon --inspect=0.0.0.0:9229 ./dist/index",
+		"start": "nodemon --inspect=0.0.0.0:9229 ./dist/index",
 		"bundle": "webpack --watch",
 		"asbuild:untouched": "asc assembly-script/index.ts -b dist/wasm/untouched.wasm -t dist/wasm/untouched.wat --sourceMap --validate --debug",
 		"asbuild:optimized": "asc assembly-script/index.ts -b dist/wasm/untouched.wasm -t dist/wasm/untouched.wat --sourceMap --validate --optimize",
