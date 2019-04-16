@@ -25,3 +25,4 @@ interface Action<Payload, Meta = undefined> {
 	 */
 	meta?: Meta;
 }
+type ActionHandler = (action: Action<string>) => void

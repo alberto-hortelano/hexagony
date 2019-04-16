@@ -4,9 +4,6 @@ import { connect } from "react-redux";
 import { Row } from "./Row";
 
 export type BoardProps = { width: number; height: number };
-const init = (width, height) => {
-
-}
 /**
  * Board: A cell's matrix of size (width * height)
  * @param BoardProps 
@@ -22,7 +19,6 @@ export const Board: React.FC<BoardProps> = ({ width, height }) => {
 		}
 		return rows;
 	};
-	init(width, height);
 
 	return (
 		<div className="board">

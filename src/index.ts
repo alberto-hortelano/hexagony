@@ -36,6 +36,7 @@ async function startServer(port: number) {
 
 /**
  * Get collections or throw an error if not initailized yet
+ * @param name 
  * @returns collections
  */
 export function getCollection(name: string) {

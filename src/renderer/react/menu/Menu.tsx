@@ -1,63 +1,19 @@
 import * as React from "react";
-import { connect } from "react-redux";
 import { CurrentActionCT } from "./CurrentAction";
+import { MenuItemCT } from "./MenuItem";
 
 export type MenuStructure = {
 	[name: string]: {
-		action?: string,
+		action?: Action<string>,
 		children?: MenuStructure;
 	}
 }
-let n = 0;
-const MenuItem = ({ text, children, action, handleClick }) => {
-
-	const renderSubmenu = () => {
-		if (!children) {
-			return;
-		}
-		let menuItems = [];
-		for (const name in children) {
-			if (children.hasOwnProperty(name)) {
-				const element = children[name];
-				console.log(n, name, children[name]);
-				menuItems.push(<MenuItemCT key={n++} action={element.action} text={name} children={element.children} />);
-			}
-		}
-		return (
-			<ul className="pure-menu-children">
-				{menuItems}
-			</ul>
-		);
-	};
-
-	const className = `pure-menu-item ${children ? 'pure-menu-has-children ' : ''}pure-menu-allow-hover`
-
-	return (
-		<li className={className}>
-			<button onClick={() => handleClick(action)} className="pure-menu-link">{text}</button>
-			{renderSubmenu()}
-		</li>
-	);
-};
-const mapDispatchToProps = dispatch => {
-	return {
-		handleClick: action => {
-			dispatch({
-				type: 'SELECT_MAP_TERRAIN',
-				payload: action
-			})
-		}
-	}
-}
-export const MenuItemCT = connect(
-	null,
-	mapDispatchToProps
-)(MenuItem);
 
 export const Menu: React.FC<MenuStructure> = props => {
 	const { structure } = props;
 
 	const renderMenuItems = () => {
+		let n = 0;
 		let menuItems = [];
 		for (const name in structure) {
 			if (structure.hasOwnProperty(name)) {

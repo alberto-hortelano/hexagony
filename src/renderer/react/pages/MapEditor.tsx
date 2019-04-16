@@ -1,6 +1,7 @@
 import * as React from "react";
 import { BoardCT } from "../board/Board";
 import { Menu, MenuStructure } from "../menu/Menu";
+import { actions } from "../../../state/reducers/actions";
 
 
 export const MapEditor: React.FC = () => {
@@ -8,22 +9,34 @@ export const MapEditor: React.FC = () => {
 		terrain: {
 			children: {
 				dust: {
-					action: 'SELECT_MAP_TERRAIN'
+					action: {
+						type: actions.selectMapTerrain,
+						payload: 'dust'
+					}
 				},
 				grass: {
-					action: 'action'
+					action: {
+						type: actions.selectMapTerrain,
+						payload: 'grass'
+					}
 				}
 			}
 		},
 		something: {
 			children: {
 				withAction: {
-					action: 'action',
+					action: {
+						type: actions.selectMapTerrain,
+						payload: 'withAction'
+					},
 					children: {
 						sub2: {
 							children: {
 								sub3: {
-									action: 'action'
+									action: {
+										type: actions.selectMapTerrain,
+										payload: 'sub3'
+									}
 								}
 							}
 						}
@@ -32,14 +45,20 @@ export const MapEditor: React.FC = () => {
 				sub12: {
 					children: {
 						sub21: {
-							action: 'action'
+							action: {
+								type: actions.selectMapTerrain,
+								payload: 'sub21'
+							}
 						}
 					}
 				}
 			}
 		},
 		nothing: {
-			action: 'action'
+			action: {
+				type: actions.selectMapTerrain,
+				payload: 'nothing'
+			}
 		}
 	}
 	return (

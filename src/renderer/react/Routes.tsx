@@ -2,7 +2,7 @@ import * as React from "react";
 import { Provider } from "react-redux";
 import { Route } from 'react-router-dom';
 import { BoardCT } from "./board/Board";
-import store from "../../state/store";
+import { store } from "../../state/store";
 import { MapEditor } from "./pages/MapEditor";
 
 if (typeof window !== 'undefined') console.log(window['store'] = store);

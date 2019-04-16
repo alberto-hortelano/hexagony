@@ -1,6 +1,5 @@
-import { createStore, combineReducers } from "redux";
-import rootReducer from "../reducers";
-import { initialState } from "../reducers/initialState";
+import { createStore } from "redux";
+import { rootReducer } from "../reducers";
 
 interface Cell {
 	x: number,
@@ -17,6 +16,4 @@ interface GameState {
 	map: MapState
 }
 
-const store = createStore(rootReducer, initialState);
-
-export default store;
+export const store = createStore(rootReducer);

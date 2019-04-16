@@ -2,7 +2,7 @@
 set -e
 cd "$(dirname "$0")"
 cd ../
-terminator=true
+terminator=false
 gnome-terminal -e 'sh -c "docker-compose up"'
 function handle_event() {
     local entry="$1"
@@ -12,9 +12,9 @@ function handle_event() {
 		if [ "$terminator" = true ]; then
         	terminator -m -b -l hex
 		else
-			sleep 3 && gnome-terminal -e 'sh -c "./run.sh start"'
-			gnome-terminal -e 'sh -c "./run.sh build:all"'
-			gnome-terminal -e 'sh -c "./run.sh bundle"'
+			gnome-terminal -e 'sh -c "./bash/run.sh build:all"'
+			gnome-terminal -e 'sh -c "./bash/run.sh bundle"'
+			sleep 3 && gnome-terminal -e 'sh -c "./bash/run.sh start"'
 		fi
 		echo "done"
     fi
