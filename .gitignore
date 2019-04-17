@@ -1,6 +1,6 @@
-.vscode
+.vscode/
 node_modules/
-dist
-secret
+dist/
+secret/
 terminator.config
 public/react.bundle.js
